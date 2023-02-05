@@ -15,13 +15,13 @@
 	<div class="basis-[30%] ml-10">
 		<VerticalTabs {tabNames} {activeTab} on:tabChange={tabChange} />
 	</div>
-	<div class="basis-[100%] bg-white h-[90vh] mb-10 mr-10">
+	<div class="basis-[100%] bg-white h-[90vh] p-7 mb-10 mr-10">
 		{#if activeTab === 'Readme'}
 			Readme
 		{:else if activeTab === 'Simple Text Editor'}
 			<textarea
 				placeholder="Start typing here"
-				class="mx-5 my-5 h-[85vh] w-[70vw] p-3 text-lg outline-none "
+				class="  text-lg w-full h-full outline-none "
 			/>
 		{:else if activeTab === 'Markdown Text Editor'}
 			Md

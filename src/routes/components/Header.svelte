@@ -13,7 +13,7 @@
 		<div class="">
 			<nav class="md:hidden">
 				<div class=" px-4 py-2 flex justify-between">
-					<h1 class="font-['Lilita_One'] text-{primaryaccent} text-2xl">Webtools for Noobs</h1>
+					<a href="/" class="font-['Lilita_One'] text-{primaryaccent} text-2xl">Webtools for Noobs</a>
 					<div class="flex pt-1 gap-2 sm:gap-4">
 						<svg
 							width="24"
@@ -128,9 +128,9 @@
 				<div class="container mx-auto ">
 					<div class="flex justify-between px-10 py-1 ">
 						<div class="flex gap-3">
-							<h1 class="font-['Lilita_One'] text-{primaryaccent} text-[1.65rem]">
+							<a href="/" class="font-['Lilita_One'] text-{primaryaccent} text-[1.65rem]">
 								Webtools for Noobs
-							</h1>
+							</a>
 							<span class=" text-{dividercolor} text-xl mt-1 font-sans">|</span>
 							<h3 class="  text-{secondaryaccent} font-sans font-medium text-xl mt-1.5">
 								{name}
