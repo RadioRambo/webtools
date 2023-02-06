@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Header from '../components/Header.svelte';
 	import VerticalTabs from '../components/VerticalTabs.svelte';
-	let tabNames: string[] = ['Readme', 'Simple Text Editor', 'Markdown Text Editor', 'Contribute'];
+	let tabNames: string[] = ['Readme', 'Simple Text Editor', 'Contribute'];
 	let activeTab: string = 'Simple Text Editor';
 	const tabChange = (e) => {
 		activeTab = tabNames[e.detail];
@@ -12,19 +12,15 @@
 <Header name="Text Editor" />
 
 <div class="mt-20 flex m-auto container">
-	<div class="basis-[30%] ml-10">
+	<div class="basis-[30%] ml-10 ">
 		<VerticalTabs {tabNames} {activeTab} on:tabChange={tabChange} />
 	</div>
 	<div class="basis-[100%] bg-white h-[90vh] p-7 mb-10 mr-10">
 		{#if activeTab === 'Readme'}
 			Readme
 		{:else if activeTab === 'Simple Text Editor'}
-			<textarea
-				placeholder="Start typing here"
-				class="  text-lg w-full h-full outline-none "
-			/>
-		{:else if activeTab === 'Markdown Text Editor'}
-			Md
+			<textarea placeholder="Start typing here" class="  text-lg w-full h-full outline-none " />
+	
 		{:else if activeTab === 'Contribute'}
 			Contribute
 		{/if}

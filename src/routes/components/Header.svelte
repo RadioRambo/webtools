@@ -6,6 +6,14 @@
 	let svgaccent = '#333333';
 	export let name = '';
 	export let dividercolor = 'white';
+	let showMenuVisible = false;
+	let showSettingsVisible = false;
+	function showMenu() {
+		showMenuVisible = !showMenuVisible;
+	}
+	function showSettings() {
+		showSettingsVisible = !showSettingsVisible;
+	}
 </script>
 
 <html lang="en">
@@ -13,7 +21,9 @@
 		<div class="">
 			<nav class="md:hidden">
 				<div class=" px-4 py-2 flex justify-between">
-					<a href="/" class="font-['Lilita_One'] text-{primaryaccent} text-2xl">Webtools for Noobs</a>
+					<a href="/" class="font-['Lilita_One'] text-{primaryaccent} text-2xl"
+						>Webtools for Noobs</a
+					>
 					<div class="flex pt-1 gap-2 sm:gap-4">
 						<svg
 							width="24"
@@ -136,22 +146,11 @@
 								{name}
 							</h3>
 						</div>
-						<div class="flex gap-5 mt-2">
+						<div class="flex gap-5 mt-1.5">
+							
 							<svg
-								width="25"
-								height="26"
-								viewBox="0 0 25 26"
-								fill="none"
-								xmlns="http://www.w3.org/2000/svg"
-							>
-								<path
-									d="M22.5664 21.6099L16.9023 15.8066C18.2634 14.1324 18.9421 11.9851 18.7972 9.8113C18.6524 7.6375 17.6952 5.60461 16.1247 4.1355C14.5542 2.6664 12.4914 1.8742 10.3654 1.9237C8.23938 1.9732 6.21383 2.86059 4.71012 4.40127C3.2064 5.94195 2.3403 8.0173 2.29199 10.1956C2.24368 12.3739 3.01687 14.4874 4.45073 16.0965C5.88458 17.7055 7.8687 18.6863 9.99034 18.8347C12.112 18.9831 14.2078 18.2877 15.8418 16.8932L21.5058 22.6965L22.5664 21.6099ZM3.8164 10.4015C3.8164 9.03368 4.21228 7.69655 4.95398 6.55923C5.69568 5.42191 6.74989 4.53548 7.98329 4.01203C9.21669 3.48857 10.5739 3.35162 11.8833 3.61847C13.1926 3.88532 14.3954 4.544 15.3394 5.51121C16.2834 6.47842 16.9263 7.71073 17.1867 9.05229C17.4472 10.3938 17.3135 11.7844 16.8026 13.0481C16.2917 14.3119 15.4265 15.392 14.3165 16.1519C13.2065 16.9118 11.9014 17.3175 10.5664 17.3175C8.7768 17.3154 7.06106 16.5861 5.79562 15.2896C4.53018 13.993 3.81839 12.2351 3.8164 10.4015V10.4015Z"
-									fill={svgaccent}
-								/>
-							</svg>
-							<svg
-								width="24"
-								height="24"
+								width="28"
+								height="28"
 								viewBox="0 0 25 24"
 								fill="none"
 								xmlns="http://www.w3.org/2000/svg"
@@ -162,8 +161,8 @@
 								/>
 							</svg>
 							<svg
-								width="24"
-								height="24"
+								width="28"
+								height="28"
 								viewBox="0 0 25 25"
 								fill="none"
 								xmlns="http://www.w3.org/2000/svg"
@@ -175,9 +174,13 @@
 									fill={svgaccent}
 								/>
 							</svg>
-							<svg
-								width="24"
-								height="24"
+							<div>
+								{#if !showSettingsVisible}
+
+								<svg class="cursor-pointer" on:click={showSettings}
+								
+								width="28"
+								height="28"
 								viewBox="0 0 25 24"
 								fill="none"
 								xmlns="http://www.w3.org/2000/svg"
@@ -192,35 +195,92 @@
 								/>
 							</svg>
 
-							<svg
-								width="24"
-								height="24"
-								viewBox="0 0 25 25"
-								fill="none"
-								xmlns="http://www.w3.org/2000/svg"
-							>
-								<g clip-path="url(#clip0_103_8)">
-									<path d="M14.3164 3.70599H11.3164V6.70599H14.3164V3.70599Z" fill={svgaccent} />
-									<path d="M6.81641 3.70599H3.81641V6.70599H6.81641V3.70599Z" fill={svgaccent} />
-									<path d="M21.8164 3.70599H18.8164V6.70599H21.8164V3.70599Z" fill={svgaccent} />
-									<path d="M14.3164 11.206H11.3164V14.206H14.3164V11.206Z" fill={svgaccent} />
-									<path d="M6.81641 11.206H3.81641V14.206H6.81641V11.206Z" fill={svgaccent} />
-									<path d="M21.8164 11.206H18.8164V14.206H21.8164V11.206Z" fill={svgaccent} />
-									<path d="M14.3164 18.706H11.3164V21.706H14.3164V18.706Z" fill={svgaccent} />
-									<path d="M6.81641 18.706H3.81641V21.706H6.81641V18.706Z" fill={svgaccent} />
-									<path d="M21.8164 18.706H18.8164V21.706H21.8164V18.706Z" fill={svgaccent} />
-								</g>
-								<defs>
-									<clipPath id="clip0_103_8">
-										<rect
-											width="24"
-											height="24"
-											fill="white"
-											transform="translate(0.816406 0.705994)"
-										/>
-									</clipPath>
-								</defs>
-							</svg>
+							
+								
+									
+								{:else if showSettingsVisible}
+								<svg
+										class="relative pr-2 bg-[#EAEAEA] cursor-pointer"
+										on:click={showSettings}
+										width="28"
+										height="28"
+										viewBox="0 0 25 25"
+										><polygon
+											points="24 9.4 22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4"
+										/></svg
+									>
+									
+								{/if}
+								<div
+									class="shadow-xl absolute hidden bg-[#EAEAEA] w-1/3 h-2/3 right-10"
+									class:showsettings={showSettingsVisible}
+								>
+									<div>Settings</div>
+								</div>
+							</div>
+							
+							<div>
+								{#if !showMenuVisible}
+									<svg
+										on:click={showMenu}
+										class="relative cursor-pointer"
+										class:showmenubutton={showMenuVisible}
+										width="28"
+										height="28"
+										viewBox="0 0 25 25"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<g clip-path="url(#clip0_103_8)">
+											<path
+												d="M14.3164 3.70599H11.3164V6.70599H14.3164V3.70599Z"
+												fill={svgaccent}
+											/>
+											<path
+												d="M6.81641 3.70599H3.81641V6.70599H6.81641V3.70599Z"
+												fill={svgaccent}
+											/>
+											<path
+												d="M21.8164 3.70599H18.8164V6.70599H21.8164V3.70599Z"
+												fill={svgaccent}
+											/>
+											<path d="M14.3164 11.206H11.3164V14.206H14.3164V11.206Z" fill={svgaccent} />
+											<path d="M6.81641 11.206H3.81641V14.206H6.81641V11.206Z" fill={svgaccent} />
+											<path d="M21.8164 11.206H18.8164V14.206H21.8164V11.206Z" fill={svgaccent} />
+											<path d="M14.3164 18.706H11.3164V21.706H14.3164V18.706Z" fill={svgaccent} />
+											<path d="M6.81641 18.706H3.81641V21.706H6.81641V18.706Z" fill={svgaccent} />
+											<path d="M21.8164 18.706H18.8164V21.706H21.8164V18.706Z" fill={svgaccent} />
+										</g>
+										<defs>
+											<clipPath id="clip0_103_8">
+												<rect
+													width="24"
+													height="24"
+													fill="white"
+													transform="translate(0.816406 0.705994)"
+												/>
+											</clipPath>
+										</defs>
+									</svg>
+								{:else if showMenuVisible}
+									<svg
+										class="relative pr-2 bg-[#EAEAEA] cursor-pointer"
+										on:click={showMenu}
+										width="28"
+										height="28"
+										viewBox="0 0 25 25"
+										><polygon
+											points="24 9.4 22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4"
+										/></svg
+									>
+								{/if}
+								<div
+									class="shadow-xl absolute hidden bg-[#EAEAEA] w-1/3 h-2/3 right-10"
+									class:showmenu={showMenuVisible}
+								>
+									<div>Menu</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -228,3 +288,16 @@
 		</div>
 	</body>
 </html>
+
+<style>
+	.showmenu {
+		display: block;
+	}
+	.showmenubutton {
+		background-color: aquamarine;
+	}
+	.showsettings{
+		display: block;
+
+	}
+</style>
