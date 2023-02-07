@@ -3,8 +3,8 @@
 </script>
 
 <Header />
-	<p class="font-semibold text-3xl px-10 py-10">Single destination for different open source privacy respecting web tools with easy to use (noob friendly) beautiful user interface and essential features.</p>
-<div class="px-10 bg-white">
+	
+<div class="px-10 bg-white h-screen">
 	<h2 class="text-2xl py-10">List of all tools</h2>
 
 	<ol>

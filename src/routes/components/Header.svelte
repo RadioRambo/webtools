@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	// use [] for hexcolor codes and for tailwind colors text-red-900
 	export let header1 = 'bg-white';
 	export let primaryaccent = 'black';
@@ -14,9 +14,23 @@
 	function showSettings() {
 		showSettingsVisible = !showSettingsVisible;
 	}
+	function closeAllModalsWhenClickedOutside(): void {
+		if (showMenuVisible) {
+			showMenuVisible = false;
+		}
+		if (showSettingsVisible) {
+			showSettingsVisible = false;
+		}
+	}
 </script>
 
 <html lang="en">
+	<div
+	class=" w-full h-full hidden fixed "
+	class:showsettings={showSettingsVisible}
+	class:showmenu={showMenuVisible}
+	on:click={closeAllModalsWhenClickedOutside}
+></div>
 	<body class="bg-[#EAEAEA]">
 		<div class="">
 			<nav class="md:hidden">
@@ -287,6 +301,7 @@
 			</nav>
 		</div>
 	</body>
+
 </html>
 
 <style>
