@@ -3,7 +3,14 @@ module.exports = {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 
 	theme: {
-		extend: {}
+		extend: {
+			colors: {
+				svgcolor: '#000000',
+				primarycolor: '#FFFFFF',
+				textcolor: '#000000',
+				backgroundcolor: '#EAEAEA'
+			}
+		}
 	},
 	plugins: []
 };

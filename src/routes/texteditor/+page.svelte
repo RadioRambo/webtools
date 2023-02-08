@@ -17,15 +17,18 @@
 	function simpleTextEditorDataUpdate(): void {
 		localStorage.setItem('simpleTextEditorData', simpleTextEditorContent);
 	}
+
+	    
+
 </script>
 
-<Header name="Text Editor" />
+<Header toolName="Text Editor" />
 
 <div class="mt-20 flex m-auto container">
 	<div class="basis-[30%] ml-10 ">
 		<VerticalTabs {tabNames} {activeTab} on:tabChange={tabChange} />
 	</div>
-	<div class="basis-[100%] bg-white h-[90vh] p-7 mb-10 mr-10">
+	<div class="basis-[100%] bg-primarycolor h-[90vh] p-7 mb-10 mr-10">
 		{#if activeTab === 'Readme'}
 			Readme
 		{:else if activeTab === 'Simple Text Editor'}
