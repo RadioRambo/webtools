@@ -11,15 +11,15 @@
 </script>
 
 <Header />
-<div class="mt-20 flex m-auto container">
-	<div class="basis-[30%] ml-10">
+<div class="container m-auto mt-20 flex">
+	<div class="ml-10 basis-[30%]">
 		<VerticalTabs {tabNames} {activeTab} on:tabChange={tabChange} />
 	</div>
-	<div class="basis-[100%] bg-white mr-10">
+	<div class="mr-10 basis-[100%] bg-white">
 		{#if activeTab === 'One'}
 			<HorizontalTabs {tabNames} {activeTab} />
 		{:else if activeTab === 'Two'}
-			<h1 >two</h1>
+			<h1>two</h1>
 		{/if}
 	</div>
 </div>

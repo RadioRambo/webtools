@@ -20,7 +20,7 @@
 
 <html lang="en">
 	<div
-		class="z-10 w-full h-full  fixed {showSettings || showAppMenu ? 'block' : 'hidden'}"
+		class="fixed z-10 h-full  w-full {showSettings || showAppMenu ? 'block' : 'hidden'}"
 		on:click={closeAllModalsWhenClickedOutside}
 	/>
 
@@ -28,14 +28,14 @@
 		<!-- Header when screen size is below md(786px)  -->
 		<nav class="md:hidden">
 			<!-- top header -->
-			<div class=" px-4 py-2 flex justify-between bg-primarycolor">
-				<a href="/" class="font-['Lilita_One'] text-textcolor text-2xl {showAppMenu ? 'z-30' : ''} "
+			<div class=" flex justify-between bg-primarycolor px-4 py-2">
+				<a href="/" class="font-['Lilita_One'] text-2xl text-textcolor {showAppMenu ? 'z-30' : ''} "
 					>Webtools for Noobs</a
 				>
 				<div class=" flex pt-0.5 ">
 					<!-- Github Icon -->
 					<svg
-						class="mr-3 w-7 h-7 fill-svgcolor"
+						class="mr-3 h-7 w-7 fill-svgcolor"
 						xmlns="http://www.w3.org/2000/svg"
 						viewBox="0 -1 32 32"
 					>
@@ -53,7 +53,7 @@
 					{#if !showAppMenu}
 						<svg
 							on:click={toggleAppMenuModal}
-							class="relative cursor-pointer w-7 h-7 fill-svgcolor"
+							class="relative h-7 w-7 cursor-pointer fill-svgcolor"
 							viewBox="0 0 25 25"
 							fill="none"
 							xmlns="http://www.w3.org/2000/svg"
@@ -82,37 +82,33 @@
 						</svg>
 					{:else if showAppMenu}
 						<!-- Close Icon -->
-						
 					{/if}
-					<div>
-
-					</div>
+					<div />
 					<div
-						class="shadow-xl fixed bg-primarycolor w-full h-full top-0 left-0  {showAppMenu
-							? 'block z-20'
+						class="fixed top-0 left-0 h-full w-full bg-primarycolor shadow-xl  {showAppMenu
+							? 'z-20 block'
 							: 'hidden'}"
-					><div class="">
-						<svg
-							class="mr-1.5 mt-0.5 w-12 h-12 float-right fill-svgcolor cursor-pointer z-30"
-							on:click={toggleAppMenuModal}
-							viewBox="0 0 32 32"
-							><polygon
-								points="24 9.4 22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4"
-							/></svg
-						>
-
-					</div>
+					>
+						<div class="">
+							<svg
+								class="z-30 float-right mr-1.5 mt-0.5 h-12 w-12 cursor-pointer fill-svgcolor"
+								on:click={toggleAppMenuModal}
+								viewBox="0 0 32 32"
+								><polygon
+									points="24 9.4 22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4"
+								/></svg
+							>
+						</div>
 						<div class="mt-14">Menu</div>
-						
 					</div>
 				</div>
 			</div>
 			<!-- bottom header -->
-			<div class="flex bg-primarycolor/90 justify-between py-2 sm:py-2 px-4 ">
+			<div class="flex justify-between bg-primarycolor/90 py-2 px-4 sm:py-2 ">
 				<div class="  flex gap-2 sm:gap-4">
 					<!-- Navigation Menu Icon -->
 					<svg
-						class="fill-svgcolor w-5 h-5 cursor-pointer"
+						class="h-5 w-5 animate-bounce cursor-pointer fill-svgcolor "
 						viewBox="0 -2 20 20"
 						fill="none"
 						xmlns="http://www.w3.org/2000/svg"
@@ -122,12 +118,12 @@
 						<path d="M17.5 7.5H2.5V8.75H17.5V7.5Z" />
 						<path d="M17.5 11.25H2.5V12.5H17.5V11.25Z" />
 					</svg>
-					<h3 class="text-textcolor/80 font-sans font-[700]">{toolName}</h3>
+					<h3 class="font-sans font-[700] text-textcolor/80">{toolName}</h3>
 				</div>
-				<div class="flex gap-3 justify-between sm:gap-3">
+				<div class="flex justify-between gap-3 sm:gap-3">
 					<!-- Theme Icon -->
 					<svg
-						class="w-6 h-6 fill-svgcolor cursor-pointer"
+						class="h-6 w-6 cursor-pointer fill-svgcolor"
 						fill="none"
 						xmlns="http://www.w3.org/2000/svg"
 					>
@@ -137,59 +133,59 @@
 					</svg>
 					<!-- Settings Icon -->
 					<div>
-							{#if !showSettings}
-								<svg
-									class="cursor-pointer fill-svgcolor w-6 h-6"
-									on:click={toggleSettingsModal}
-									fill="none"
-									xmlns="http://www.w3.org/2000/svg"
-								>
-									<path
-										d="M21.0664 12.5701C21.0664 12.3826 21.0664 12.1951 21.0664 12.0001C21.0664 11.8051 21.0664 11.6176 21.0664 11.4226L22.5064 10.1626C22.7719 9.9286 22.946 9.60833 22.9982 9.25836C23.0504 8.90839 22.9771 8.55125 22.7914 8.25006L21.0214 5.25006C20.8899 5.02226 20.7008 4.83305 20.473 4.70141C20.2453 4.56977 19.987 4.50033 19.7239 4.50006C19.5609 4.49881 19.3988 4.52414 19.2439 4.57506L17.4214 5.19006C17.1068 4.98097 16.7785 4.79305 16.4389 4.62756L16.0564 2.73756C15.9878 2.39226 15.8 2.08209 15.5258 1.86134C15.2515 1.64058 14.9084 1.52332 14.5564 1.53006H11.0464C10.6944 1.52332 10.3513 1.64058 10.0771 1.86134C9.80284 2.08209 9.615 2.39226 9.54641 2.73756L9.16391 4.62756C8.82186 4.79301 8.49114 4.98092 8.17391 5.19006L6.38891 4.54506C6.23239 4.50428 6.07029 4.48908 5.90891 4.50006C5.64587 4.50033 5.38752 4.56977 5.15978 4.70141C4.93205 4.83305 4.74293 5.02226 4.61141 5.25006L2.84141 8.25006C2.66635 8.5508 2.6013 8.90305 2.6574 9.24648C2.7135 9.58991 2.88726 9.90316 3.14891 10.1326L4.56641 11.4301C4.56641 11.6176 4.56641 11.8051 4.56641 12.0001C4.56641 12.1951 4.56641 12.3826 4.56641 12.5776L3.14891 13.8376C2.87986 14.0686 2.70135 14.3874 2.64506 14.7375C2.58877 15.0876 2.65833 15.4464 2.84141 15.7501L4.61141 18.7501C4.74293 18.9779 4.93205 19.1671 5.15978 19.2987C5.38752 19.4304 5.64587 19.4998 5.90891 19.5001C6.07193 19.5013 6.23405 19.476 6.38891 19.4251L8.21141 18.8101C8.52607 19.0192 8.85429 19.2071 9.19391 19.3726L9.57641 21.2626C9.645 21.6079 9.83284 21.918 10.1071 22.1388C10.3813 22.3595 10.7244 22.4768 11.0764 22.4701H14.6164C14.9684 22.4768 15.3115 22.3595 15.5858 22.1388C15.86 21.918 16.0478 21.6079 16.1164 21.2626L16.4989 19.3726C16.841 19.2071 17.1717 19.0192 17.4889 18.8101L19.3039 19.4251C19.4588 19.476 19.6209 19.5013 19.7839 19.5001C20.047 19.4998 20.3053 19.4304 20.533 19.2987C20.7608 19.1671 20.9499 18.9779 21.0814 18.7501L22.7914 15.7501C22.9665 15.4493 23.0315 15.0971 22.9754 14.7536C22.9193 14.4102 22.7456 14.097 22.4839 13.8676L21.0664 12.5701ZM19.7239 18.0001L17.1514 17.1301C16.5492 17.6401 15.861 18.0389 15.1189 18.3076L14.5864 21.0001H11.0464L10.5139 18.3376C9.77773 18.0612 9.0932 17.6632 8.48891 17.1601L5.90891 18.0001L4.13891 15.0001L6.17891 13.2001C6.04024 12.4237 6.04024 11.6289 6.17891 10.8526L4.13891 9.00006L5.90891 6.00006L8.48141 6.87006C9.08361 6.35998 9.77187 5.96125 10.5139 5.69256L11.0464 3.00006H14.5864L15.1189 5.66256C15.8551 5.93888 16.5396 6.33692 17.1439 6.84006L19.7239 6.00006L21.4939 9.00006L19.4539 10.8001C19.5926 11.5764 19.5926 12.3712 19.4539 13.1476L21.4939 15.0001L19.7239 18.0001Z"
-									/>
-									<path
-										d="M12.8164 16.5001C11.9264 16.5001 11.0564 16.2361 10.3163 15.7417C9.57632 15.2472 8.99954 14.5444 8.65895 13.7221C8.31836 12.8999 8.22924 11.9951 8.40287 11.1222C8.57651 10.2492 9.00509 9.44742 9.63443 8.81808C10.2638 8.18875 11.0656 7.76016 11.9385 7.58653C12.8114 7.4129 13.7162 7.50201 14.5385 7.84261C15.3608 8.1832 16.0636 8.75998 16.558 9.5C17.0525 10.24 17.3164 11.11 17.3164 12.0001C17.3224 12.5927 17.2101 13.1805 16.9861 13.7292C16.7621 14.2779 16.4309 14.7764 16.0118 15.1955C15.5927 15.6145 15.0943 15.9458 14.5456 16.1698C13.9969 16.3938 13.409 16.5061 12.8164 16.5001V16.5001ZM12.8164 9.00006C12.4199 8.99083 12.0257 9.06211 11.6575 9.20961C11.2894 9.3571 10.955 9.57774 10.6745 9.85818C10.3941 10.1386 10.1734 10.473 10.026 10.8412C9.87846 11.2093 9.80717 11.6036 9.81641 12.0001C9.80717 12.3966 9.87846 12.7908 10.026 13.159C10.1734 13.5271 10.3941 13.8615 10.6745 14.1419C10.955 14.4224 11.2894 14.643 11.6575 14.7905C12.0257 14.938 12.4199 15.0093 12.8164 15.0001C13.2129 15.0093 13.6071 14.938 13.9753 14.7905C14.3434 14.643 14.6779 14.4224 14.9583 14.1419C15.2387 13.8615 15.4594 13.5271 15.6069 13.159C15.7544 12.7908 15.8256 12.3966 15.8164 12.0001C15.8256 11.6036 15.7544 11.2093 15.6069 10.8412C15.4594 10.473 15.2387 10.1386 14.9583 9.85818C14.6779 9.57774 14.3434 9.3571 13.9753 9.20961C13.6071 9.06211 13.2129 8.99083 12.8164 9.00006Z"
-									/>
-								</svg>
-							{:else if showSettings}
-								<!-- Close Icon -->
-								<svg
-									class="relative mt-0.5 bg-backgroundcolor outlne-4 outline outline-backgroundcolor  w-6 h-8 fill-svgcolor cursor-pointer"
-									on:click={toggleSettingsModal}
-									viewBox="6 8 20 20"
-									><polygon
-										points="24 9.4 22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4"
-									/></svg
-								>
-							{/if}
-							<div
-								class="shadow-xl absolute bg-backgroundcolor w-full h-2/3 left-0 top-[5.5rem] {showSettings
-									? 'block z-20'
-									: 'hidden'}"
+						{#if !showSettings}
+							<svg
+								class="h-6 w-6 cursor-pointer fill-svgcolor"
+								on:click={toggleSettingsModal}
+								fill="none"
+								xmlns="http://www.w3.org/2000/svg"
 							>
-								<div>Settings</div>
-							</div>
+								<path
+									d="M21.0664 12.5701C21.0664 12.3826 21.0664 12.1951 21.0664 12.0001C21.0664 11.8051 21.0664 11.6176 21.0664 11.4226L22.5064 10.1626C22.7719 9.9286 22.946 9.60833 22.9982 9.25836C23.0504 8.90839 22.9771 8.55125 22.7914 8.25006L21.0214 5.25006C20.8899 5.02226 20.7008 4.83305 20.473 4.70141C20.2453 4.56977 19.987 4.50033 19.7239 4.50006C19.5609 4.49881 19.3988 4.52414 19.2439 4.57506L17.4214 5.19006C17.1068 4.98097 16.7785 4.79305 16.4389 4.62756L16.0564 2.73756C15.9878 2.39226 15.8 2.08209 15.5258 1.86134C15.2515 1.64058 14.9084 1.52332 14.5564 1.53006H11.0464C10.6944 1.52332 10.3513 1.64058 10.0771 1.86134C9.80284 2.08209 9.615 2.39226 9.54641 2.73756L9.16391 4.62756C8.82186 4.79301 8.49114 4.98092 8.17391 5.19006L6.38891 4.54506C6.23239 4.50428 6.07029 4.48908 5.90891 4.50006C5.64587 4.50033 5.38752 4.56977 5.15978 4.70141C4.93205 4.83305 4.74293 5.02226 4.61141 5.25006L2.84141 8.25006C2.66635 8.5508 2.6013 8.90305 2.6574 9.24648C2.7135 9.58991 2.88726 9.90316 3.14891 10.1326L4.56641 11.4301C4.56641 11.6176 4.56641 11.8051 4.56641 12.0001C4.56641 12.1951 4.56641 12.3826 4.56641 12.5776L3.14891 13.8376C2.87986 14.0686 2.70135 14.3874 2.64506 14.7375C2.58877 15.0876 2.65833 15.4464 2.84141 15.7501L4.61141 18.7501C4.74293 18.9779 4.93205 19.1671 5.15978 19.2987C5.38752 19.4304 5.64587 19.4998 5.90891 19.5001C6.07193 19.5013 6.23405 19.476 6.38891 19.4251L8.21141 18.8101C8.52607 19.0192 8.85429 19.2071 9.19391 19.3726L9.57641 21.2626C9.645 21.6079 9.83284 21.918 10.1071 22.1388C10.3813 22.3595 10.7244 22.4768 11.0764 22.4701H14.6164C14.9684 22.4768 15.3115 22.3595 15.5858 22.1388C15.86 21.918 16.0478 21.6079 16.1164 21.2626L16.4989 19.3726C16.841 19.2071 17.1717 19.0192 17.4889 18.8101L19.3039 19.4251C19.4588 19.476 19.6209 19.5013 19.7839 19.5001C20.047 19.4998 20.3053 19.4304 20.533 19.2987C20.7608 19.1671 20.9499 18.9779 21.0814 18.7501L22.7914 15.7501C22.9665 15.4493 23.0315 15.0971 22.9754 14.7536C22.9193 14.4102 22.7456 14.097 22.4839 13.8676L21.0664 12.5701ZM19.7239 18.0001L17.1514 17.1301C16.5492 17.6401 15.861 18.0389 15.1189 18.3076L14.5864 21.0001H11.0464L10.5139 18.3376C9.77773 18.0612 9.0932 17.6632 8.48891 17.1601L5.90891 18.0001L4.13891 15.0001L6.17891 13.2001C6.04024 12.4237 6.04024 11.6289 6.17891 10.8526L4.13891 9.00006L5.90891 6.00006L8.48141 6.87006C9.08361 6.35998 9.77187 5.96125 10.5139 5.69256L11.0464 3.00006H14.5864L15.1189 5.66256C15.8551 5.93888 16.5396 6.33692 17.1439 6.84006L19.7239 6.00006L21.4939 9.00006L19.4539 10.8001C19.5926 11.5764 19.5926 12.3712 19.4539 13.1476L21.4939 15.0001L19.7239 18.0001Z"
+								/>
+								<path
+									d="M12.8164 16.5001C11.9264 16.5001 11.0564 16.2361 10.3163 15.7417C9.57632 15.2472 8.99954 14.5444 8.65895 13.7221C8.31836 12.8999 8.22924 11.9951 8.40287 11.1222C8.57651 10.2492 9.00509 9.44742 9.63443 8.81808C10.2638 8.18875 11.0656 7.76016 11.9385 7.58653C12.8114 7.4129 13.7162 7.50201 14.5385 7.84261C15.3608 8.1832 16.0636 8.75998 16.558 9.5C17.0525 10.24 17.3164 11.11 17.3164 12.0001C17.3224 12.5927 17.2101 13.1805 16.9861 13.7292C16.7621 14.2779 16.4309 14.7764 16.0118 15.1955C15.5927 15.6145 15.0943 15.9458 14.5456 16.1698C13.9969 16.3938 13.409 16.5061 12.8164 16.5001V16.5001ZM12.8164 9.00006C12.4199 8.99083 12.0257 9.06211 11.6575 9.20961C11.2894 9.3571 10.955 9.57774 10.6745 9.85818C10.3941 10.1386 10.1734 10.473 10.026 10.8412C9.87846 11.2093 9.80717 11.6036 9.81641 12.0001C9.80717 12.3966 9.87846 12.7908 10.026 13.159C10.1734 13.5271 10.3941 13.8615 10.6745 14.1419C10.955 14.4224 11.2894 14.643 11.6575 14.7905C12.0257 14.938 12.4199 15.0093 12.8164 15.0001C13.2129 15.0093 13.6071 14.938 13.9753 14.7905C14.3434 14.643 14.6779 14.4224 14.9583 14.1419C15.2387 13.8615 15.4594 13.5271 15.6069 13.159C15.7544 12.7908 15.8256 12.3966 15.8164 12.0001C15.8256 11.6036 15.7544 11.2093 15.6069 10.8412C15.4594 10.473 15.2387 10.1386 14.9583 9.85818C14.6779 9.57774 14.3434 9.3571 13.9753 9.20961C13.6071 9.06211 13.2129 8.99083 12.8164 9.00006Z"
+								/>
+							</svg>
+						{:else if showSettings}
+							<!-- Close Icon -->
+							<svg
+								class="outlne-4 relative mt-0.5 h-8 w-6 cursor-pointer  bg-backgroundcolor fill-svgcolor outline outline-backgroundcolor"
+								on:click={toggleSettingsModal}
+								viewBox="6 8 20 20"
+								><polygon
+									points="24 9.4 22.6 8 16 14.6 9.4 8 8 9.4 14.6 16 8 22.6 9.4 24 16 17.4 22.6 24 24 22.6 17.4 16 24 9.4"
+								/></svg
+							>
+						{/if}
+						<div
+							class="absolute left-0 top-[5.5rem] h-2/3 w-full bg-backgroundcolor shadow-xl {showSettings
+								? 'z-20 block'
+								: 'hidden'}"
+						>
+							<div>Settings</div>
 						</div>
+					</div>
 				</div>
 			</div>
 		</nav>
 
 		<!-- Header when screen size is above than md(786px) -->
 
-		<nav class="bg-primarycolor hidden md:block">
+		<nav class="hidden bg-primarycolor md:block">
 			<div class="container mx-auto ">
 				<div class="flex justify-between px-10 py-1 ">
 					<div class="flex gap-3">
-						<a href="/" class="font-['Lilita_One'] text-textcolor text-3xl"> Webtools for Noobs </a>
-						<span class=" text-textcolor text-xl mt-1 font-sans">|</span>
-						<h3 class="  text-textcolor font-sans font-medium text-xl mt-1.5">
+						<a href="/" class="font-['Lilita_One'] text-3xl text-textcolor"> Webtools for Noobs </a>
+						<span class=" mt-1 font-sans text-xl text-textcolor">|</span>
+						<h3 class="  mt-1.5 font-sans text-xl font-medium text-textcolor">
 							{toolName}
 						</h3>
 					</div>
-					<div class="flex gap-5 mt-1.5">
+					<div class="mt-1.5 flex gap-5">
 						<!-- Theme Icon -->
 						<svg
-							class="w-7 h-7 fill-svgcolor cursor-pointer"
+							class="h-7 w-7 cursor-pointer fill-svgcolor"
 							viewBox="0 0 25 24"
 							fill="none"
 							xmlns="http://www.w3.org/2000/svg"
@@ -201,7 +197,7 @@
 						<!-- Github Icon -->
 
 						<svg
-							class="w-7 h-7 fill-svgcolor "
+							class="h-7 w-7 fill-svgcolor "
 							xmlns="http://www.w3.org/2000/svg"
 							viewBox="0 -1 32 32"
 						>
@@ -218,7 +214,7 @@
 						<div>
 							{#if !showSettings}
 								<svg
-									class="cursor-pointer fill-svgcolor w-7 h-7"
+									class="h-7 w-7 cursor-pointer fill-svgcolor"
 									on:click={toggleSettingsModal}
 									viewBox="0 0 25 24"
 									fill="none"
@@ -234,7 +230,7 @@
 							{:else if showSettings}
 								<!-- Close Icon -->
 								<svg
-									class="relative pr-2 bg-backgroundcolor w-7 h-7 fill-svgcolor cursor-pointer"
+									class="relative h-7 w-7 cursor-pointer bg-backgroundcolor fill-svgcolor pr-2"
 									on:click={toggleSettingsModal}
 									viewBox="0 0 25 25"
 									><polygon
@@ -243,8 +239,8 @@
 								>
 							{/if}
 							<div
-								class="shadow-xl absolute bg-backgroundcolor w-1/3 h-2/3 right-10 {showSettings
-									? 'block z-20'
+								class="absolute right-10 h-2/3 w-1/3 bg-backgroundcolor shadow-xl {showSettings
+									? 'z-20 block'
 									: 'hidden'}"
 							>
 								<div>Settings</div>
@@ -255,7 +251,7 @@
 							{#if !showAppMenu}
 								<svg
 									on:click={toggleAppMenuModal}
-									class="relative cursor-pointer w-7 h-7 fill-svgcolor"
+									class="relative h-7 w-7 cursor-pointer fill-svgcolor"
 									viewBox="0 0 25 25"
 									fill="none"
 									xmlns="http://www.w3.org/2000/svg"
@@ -285,7 +281,7 @@
 							{:else if showAppMenu}
 								<!-- Close Icon -->
 								<svg
-									class="relative pr-2 w-7 h-7 bg-backgroundcolor fill-svgcolor cursor-pointer"
+									class="relative h-7 w-7 cursor-pointer bg-backgroundcolor fill-svgcolor pr-2"
 									on:click={toggleAppMenuModal}
 									viewBox="0 0 25 25"
 									><polygon
@@ -294,8 +290,8 @@
 								>
 							{/if}
 							<div
-								class="shadow-xl absolute  bg-backgroundcolor w-1/3 h-2/3 right-10 {showAppMenu
-									? 'block z-20'
+								class="absolute right-10  h-2/3 w-1/3 bg-backgroundcolor shadow-xl {showAppMenu
+									? 'z-20 block'
 									: 'hidden'}"
 							>
 								<div>Menu</div>

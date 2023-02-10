@@ -17,18 +17,20 @@
 	function simpleTextEditorDataUpdate(): void {
 		localStorage.setItem('simpleTextEditorData', simpleTextEditorContent);
 	}
-
-	    
-
+	let button = false;
 </script>
 
 <Header toolName="Text Editor" />
 
-<div class="mt-20 flex m-auto container">
-	<div class="basis-[30%] ml-10 ">
+<div
+	class=" fixed mt-20 flex w-fit transition-transform md:static md:container md:mx-auto  md:transition-none {button
+		? 'translate-x-4 '
+		: ' right-4 '} "
+>
+	<div class="w-[60vw] md:w-1/4 2xl:w-1/5 ">
 		<VerticalTabs {tabNames} {activeTab} on:tabChange={tabChange} />
 	</div>
-	<div class="basis-[100%] bg-primarycolor h-[90vh] p-7 mb-10 mr-10">
+	<div class=" mb-10 h-[90vh] w-[91vw] bg-primarycolor p-7 md:mr-10  md:w-3/4 2xl:w-4/5 ">
 		{#if activeTab === 'Readme'}
 			Readme
 		{:else if activeTab === 'Simple Text Editor'}
@@ -36,7 +38,7 @@
 				bind:value={simpleTextEditorContent}
 				on:input={simpleTextEditorDataUpdate}
 				placeholder="Start typing here"
-				class="  text-lg w-full h-full outline-none "
+				class="  h-full w-full text-lg outline-none "
 			/>
 		{:else if activeTab === 'Contribute'}
 			Contribute

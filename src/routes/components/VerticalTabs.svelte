@@ -6,24 +6,14 @@
 	export let activeTab: string;
 </script>
 
-<div class="flex flex-col gap-2 justify-between">
+<div class="flex flex-col justify-between gap-2">
 	{#each tabNames as tabName, i}
 		<button
 			on:click={() => dispatch('tabChange', i)}
-			class:active={tabName === activeTab}
-			class="tabName px-8 py-3  text-xl bg-gray font-medium text-left "
+			class=" bg-gray ml-4 -mr-0.5 px-8 py-3 text-left text-sm lg:text-base {tabName === activeTab
+				? 'bg-primarycolor font-[600]'
+				: ''} {tabName === activeTab ? '' : 'hover:bg-primarycolor/50'}"
 			>{tabName}
 		</button>
 	{/each}
 </div>
-
-<style>
-	.active {
-		background-color: #ffffff;
-		font-weight: 600;
-	}
-
-	.tabName:hover {
-		background-color: rgb(211, 211, 211);
-	}
-</style>
