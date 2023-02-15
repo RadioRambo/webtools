@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { createEventDispatcher } from 'svelte';
+	const dispatch = createEventDispatcher();
 	export let toolName = '';
 	let showAppMenu: boolean = false;
 	let showSettings: boolean = false;
@@ -16,6 +18,7 @@
 			showSettings = false;
 		}
 	}
+	
 </script>
 
 <html lang="en">
@@ -107,8 +110,8 @@
 			<div class="flex justify-between bg-primarycolor/90 py-2 px-4 sm:py-2 ">
 				<div class="  flex gap-2 sm:gap-4">
 					<!-- Navigation Menu Icon -->
-					<svg
-						class="h-5 w-5 animate-bounce cursor-pointer fill-svgcolor "
+					<svg on:click={()=>dispatch('showsidemenu',true)}
+						class="h-5 w-5  cursor-pointer fill-svgcolor "
 						viewBox="0 -2 20 20"
 						fill="none"
 						xmlns="http://www.w3.org/2000/svg"
