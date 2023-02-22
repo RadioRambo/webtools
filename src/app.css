@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+	.bgcolors {
+		@apply bg-primarycolor dark:bg-darkprimarycolor;
+	}
+
+	.textcolors {
+		@apply text-textcolor  dark:text-darktextcolor;
+	}
+}

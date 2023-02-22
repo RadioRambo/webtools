@@ -13,5 +13,5 @@
 	bind:value={simpleTextEditorContent}
 	on:input={simpleTextEditorDataUpdate}
 	placeholder="Start typing here"
-	class="  h-full w-full text-lg outline-none "
+	class="  textcolors bgcolors h-full w-full text-lg outline-none"
 />

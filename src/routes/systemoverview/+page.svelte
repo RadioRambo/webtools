@@ -1,18 +1,18 @@
 <script lang="ts">
-	import Readme from './Readme.svelte';
 	import Layout from '../components/Layout.svelte';
-	import SimpleTextEditor from './SimpleTextEditor.svelte';
+	import Readme from './Readme.svelte';
 	import Contribute from './Contribute.svelte';
 	import Header from '../components/Header.svelte';
+	import SystemOverview from './systemoverview.svelte';
 	let showSideMenu: boolean = false;
 	const toggleSideMenuInMobileView = (): void => {
 		showSideMenu = !showSideMenu;
 	};
 </script>
 
-<Header toolName="Text Editor" on:showsidemenu={toggleSideMenuInMobileView} />
-<Layout tabNames={['Readme', 'Simple Text Editor', 'Contribute']} {showSideMenu}>
+<Header toolName="System Overview" on:showsidemenu={toggleSideMenuInMobileView} />
+<Layout tabNames={['Readme', 'System Overview', 'Contribute']} {showSideMenu}>
 	<Readme slot="0" />
-	<SimpleTextEditor slot="1" />
-	<Contribute slot="2" />'
+	<SystemOverview slot="1" />
+	<Contribute slot="2" />
 </Layout>

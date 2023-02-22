@@ -1,5 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+	darkMode: 'class',
+
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 
 	theme: {
@@ -8,7 +10,11 @@ module.exports = {
 				svgcolor: '#000000',
 				primarycolor: '#FFFFFF',
 				textcolor: '#000000',
-				backgroundcolor: '#EAEAEA'
+				backgroundcolor: '#EAEAEA',
+				darksvgcolor: '#FFFFFF',
+				darkprimarycolor: '#323232',
+				darktextcolor: '#EEEEEE',
+				darkbackgroundcolor: '#252525'
 			},
 			screens: {
 				// Added screen size breakpoints for small mx-auto margins

@@ -12,7 +12,26 @@
 		%sveltekit.head%
 	</head>
 
-	<body class="bg-backgroundcolor" data-sveltekit-preload-data="hover">
+	<body class="bg-backgroundcolor dark:bg-darkbackgroundcolor" data-sveltekit-preload-data="hover">
 		<div style="display: contents">%sveltekit.body%</div>
 	</body>
 </html>
+<script>
+	// Dark theme
+
+	if (localStorage.theme === undefined) {
+		localStorage.setItem('theme', '');
+	} else if (
+		localStorage.theme === 'dark' ||
+		window.matchMedia('(prefers-color-scheme: dark)').matches
+	) {
+		document.documentElement.classList.add('dark');
+		// document.documentElement.classList.add('dark');
+	} else if (
+		localStorage.theme === 'light' ||
+		window.matchMedia('(prefers-color-scheme: light)').matches
+	) {
+		document.documentElement.classList.remove('dark');
+	} else {
+	}
+</script>

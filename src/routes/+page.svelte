@@ -4,7 +4,7 @@
 
 <Header />
 
-<div class="h-screen bg-white px-10">
+<div class="bgcolors textcolors h-screen px-10">
 	<h2 class="py-10 text-2xl">List of all tools</h2>
 
 	<ol>

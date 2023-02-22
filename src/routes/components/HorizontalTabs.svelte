@@ -11,7 +11,7 @@
 		<button
 			on:click={() => dispatch('tabChange', i)}
 			class=" bg-gray -mt-10 px-4 py-2 {tabName === activeTab
-				? 'bg-primarycolor font-[600]'
+				? 'textcolors bgcolors font-[600]'
 				: ''} {tabName === activeTab ? '' : 'hover:bg-primarycolor/50'} "
 			>{tabName}
 		</button>

@@ -10,10 +10,13 @@
 	{#each tabNames as tabName, i}
 		<button
 			on:click={() => dispatch('tabChange', i)}
-			class=" bg-gray ml-4 -mr-0.5 px-8 py-3 text-left text-sm lg:text-base {i === activeTab
-				? 'bg-primarycolor font-[600]'
-				: ''} {i === activeTab ? '' : 'hover:bg-primarycolor/50'}"
+			class=" bg-gray ml-4 -mr-0.5 px-8 py-3 text-left text-sm font-semibold lg:text-base {i ===
+			activeTab
+				? 'textcolors bgcolors font-extrabold'
+				: ''} {i === activeTab
+				? ''
+				: 'textcolors hover:bg-primarycolor/40 dark:hover:bg-darkprimarycolor'}"
 			>{tabName}
-			</button>
+		</button>
 	{/each}
 </div>

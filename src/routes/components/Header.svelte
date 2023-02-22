@@ -18,7 +18,16 @@
 			showSettings = false;
 		}
 	}
-	
+
+	function updateTheme() {
+		if (localStorage.theme === 'dark') {
+			localStorage.theme = 'light';
+			document.documentElement.classList.remove('dark');
+		} else {
+			localStorage.theme = 'dark';
+			document.documentElement.classList.add('dark');
+		}
+	}
 </script>
 
 <html lang="en">
@@ -31,14 +40,17 @@
 		<!-- Header when screen size is below md(786px)  -->
 		<nav class="md:hidden">
 			<!-- top header -->
-			<div class=" flex justify-between bg-primarycolor px-4 py-2">
-				<a href="/" class="font-['Lilita_One'] text-2xl text-textcolor {showAppMenu ? 'z-30' : ''} "
-					>Webtools for Noobs</a
+			<div class=" flex justify-between bg-primarycolor px-4 py-2 dark:bg-darkprimarycolor">
+				<a
+					href="/"
+					class="font-['Lilita_One'] text-2xl text-textcolor dark:text-darktextcolor {showAppMenu
+						? 'z-30'
+						: ''} ">Webtools for Noobs</a
 				>
 				<div class=" flex pt-0.5 ">
 					<!-- Github Icon -->
 					<svg
-						class="mr-3 h-7 w-7 fill-svgcolor"
+						class="mr-3 h-7 w-7 fill-svgcolor dark:fill-darksvgcolor"
 						xmlns="http://www.w3.org/2000/svg"
 						viewBox="0 -1 32 32"
 					>
@@ -46,7 +58,7 @@
 							<rect fill="#ffffff00" width="200" height="200" />
 
 							<path
-								class="fill-svgcolor"
+								class="fill-svgcolor dark:fill-darksvgcolor"
 								d="M16,2a14,14,0,0,0-4.43,27.28c.7.13,1-.3,1-.67s0-1.21,0-2.38c-3.89.84-4.71-1.88-4.71-1.88A3.71,3.71,0,0,0,6.24,22.3c-1.27-.86.1-.85.1-.85A2.94,2.94,0,0,1,8.48,22.9a3,3,0,0,0,4.08,1.16,2.93,2.93,0,0,1,.88-1.87c-3.1-.36-6.37-1.56-6.37-6.92a5.4,5.4,0,0,1,1.44-3.76,5,5,0,0,1,.14-3.7s1.17-.38,3.85,1.43a13.3,13.3,0,0,1,7,0c2.67-1.81,3.84-1.43,3.84-1.43a5,5,0,0,1,.14,3.7,5.4,5.4,0,0,1,1.44,3.76c0,5.38-3.27,6.56-6.39,6.91a3.33,3.33,0,0,1,.95,2.59c0,1.87,0,3.38,0,3.84s.25.81,1,.67A14,14,0,0,0,16,2Z"
 							/></a
 						>
@@ -56,7 +68,7 @@
 					{#if !showAppMenu}
 						<svg
 							on:click={toggleAppMenuModal}
-							class="relative h-7 w-7 cursor-pointer fill-svgcolor"
+							class="relative h-7 w-7 cursor-pointer fill-svgcolor dark:fill-darksvgcolor"
 							viewBox="0 0 25 25"
 							fill="none"
 							xmlns="http://www.w3.org/2000/svg"
@@ -88,13 +100,13 @@
 					{/if}
 					<div />
 					<div
-						class="fixed top-0 left-0 h-full w-full bg-primarycolor shadow-xl  {showAppMenu
+						class="fixed top-0 left-0 h-full w-full bg-primarycolor shadow-xl dark:bg-darkprimarycolor  {showAppMenu
 							? 'z-20 block'
 							: 'hidden'}"
 					>
 						<div class="">
 							<svg
-								class="z-30 float-right mr-1.5 mt-0.5 h-12 w-12 cursor-pointer fill-svgcolor"
+								class="z-30 float-right mr-1.5 mt-0.5 h-12 w-12 cursor-pointer fill-svgcolor dark:fill-darksvgcolor"
 								on:click={toggleAppMenuModal}
 								viewBox="0 0 32 32"
 								><polygon
@@ -107,11 +119,14 @@
 				</div>
 			</div>
 			<!-- bottom header -->
-			<div class="flex justify-between bg-primarycolor/90 py-2 px-4 sm:py-2 ">
+			<div
+				class="flex justify-between bg-primarycolor py-2 px-4 dark:bg-darkprimarycolor/90 sm:py-2 "
+			>
 				<div class="  flex gap-2 sm:gap-4">
 					<!-- Navigation Menu Icon -->
-					<svg on:click={()=>dispatch('showsidemenu',true)}
-						class="h-5 w-5  cursor-pointer fill-svgcolor "
+					<svg
+						on:click={() => dispatch('showsidemenu', true)}
+						class="h-5 w-5  cursor-pointer fill-svgcolor dark:fill-darksvgcolor "
 						viewBox="0 -2 20 20"
 						fill="none"
 						xmlns="http://www.w3.org/2000/svg"
@@ -121,12 +136,15 @@
 						<path d="M17.5 7.5H2.5V8.75H17.5V7.5Z" />
 						<path d="M17.5 11.25H2.5V12.5H17.5V11.25Z" />
 					</svg>
-					<h3 class="font-sans font-[700] text-textcolor/80">{toolName}</h3>
+					<h3 class="font-sans font-semibold text-textcolor dark:text-darktextcolor/80">
+						{toolName}
+					</h3>
 				</div>
 				<div class="flex justify-between gap-3 sm:gap-3">
 					<!-- Theme Icon -->
 					<svg
-						class="h-6 w-6 cursor-pointer fill-svgcolor"
+						on:click={updateTheme}
+						class="h-6 w-6 cursor-pointer fill-svgcolor dark:fill-darksvgcolor"
 						fill="none"
 						xmlns="http://www.w3.org/2000/svg"
 					>
@@ -138,7 +156,7 @@
 					<div>
 						{#if !showSettings}
 							<svg
-								class="h-6 w-6 cursor-pointer fill-svgcolor"
+								class="h-6 w-6 cursor-pointer fill-svgcolor dark:fill-darksvgcolor"
 								on:click={toggleSettingsModal}
 								fill="none"
 								xmlns="http://www.w3.org/2000/svg"
@@ -153,7 +171,7 @@
 						{:else if showSettings}
 							<!-- Close Icon -->
 							<svg
-								class="outlne-4 relative mt-0.5 h-8 w-6 cursor-pointer  bg-backgroundcolor fill-svgcolor outline outline-backgroundcolor"
+								class="outlne-4 relative mt-0.5 h-8 w-6 cursor-pointer  bg-backgroundcolor fill-svgcolor outline outline-backgroundcolor dark:bg-darkbackgroundcolor dark:fill-darksvgcolor"
 								on:click={toggleSettingsModal}
 								viewBox="6 8 20 20"
 								><polygon
@@ -162,7 +180,7 @@
 							>
 						{/if}
 						<div
-							class="absolute left-0 top-[5.5rem] h-2/3 w-full bg-backgroundcolor shadow-xl {showSettings
+							class="absolute left-0 top-[5.5rem] h-2/3 w-full bg-backgroundcolor shadow-xl dark:bg-darkbackgroundcolor {showSettings
 								? 'z-20 block'
 								: 'hidden'}"
 						>
@@ -175,20 +193,25 @@
 
 		<!-- Header when screen size is above than md(786px) -->
 
-		<nav class="hidden bg-primarycolor md:block">
+		<nav class="hidden bg-primarycolor dark:bg-darkprimarycolor md:block">
 			<div class="container mx-auto ">
 				<div class="flex justify-between px-10 py-1 ">
 					<div class="flex gap-3">
-						<a href="/" class="font-['Lilita_One'] text-3xl text-textcolor"> Webtools for Noobs </a>
-						<span class=" mt-1 font-sans text-xl text-textcolor">|</span>
-						<h3 class="  mt-1.5 font-sans text-xl font-medium text-textcolor">
+						<a href="/" class="font-['Lilita_One'] text-3xl text-textcolor dark:text-darktextcolor">
+							Webtools for Noobs
+						</a>
+						<span class=" mt-1 font-sans text-xl text-textcolor dark:text-darktextcolor">|</span>
+						<h3
+							class="  mt-1.5 font-sans text-xl font-semibold text-textcolor dark:text-darktextcolor"
+						>
 							{toolName}
 						</h3>
 					</div>
 					<div class="mt-1.5 flex gap-5">
 						<!-- Theme Icon -->
 						<svg
-							class="h-7 w-7 cursor-pointer fill-svgcolor"
+							on:click={updateTheme}
+							class="h-7 w-7 cursor-pointer fill-svgcolor dark:fill-darksvgcolor"
 							viewBox="0 0 25 24"
 							fill="none"
 							xmlns="http://www.w3.org/2000/svg"
@@ -200,7 +223,7 @@
 						<!-- Github Icon -->
 
 						<svg
-							class="h-7 w-7 fill-svgcolor "
+							class="h-7 w-7 fill-svgcolor dark:fill-darksvgcolor "
 							xmlns="http://www.w3.org/2000/svg"
 							viewBox="0 -1 32 32"
 						>
@@ -208,7 +231,7 @@
 								<rect fill="#ffffff00" width="200" height="200" />
 
 								<path
-									class="fill-svgcolor"
+									class="fill-svgcolor dark:fill-darksvgcolor"
 									d="M16,2a14,14,0,0,0-4.43,27.28c.7.13,1-.3,1-.67s0-1.21,0-2.38c-3.89.84-4.71-1.88-4.71-1.88A3.71,3.71,0,0,0,6.24,22.3c-1.27-.86.1-.85.1-.85A2.94,2.94,0,0,1,8.48,22.9a3,3,0,0,0,4.08,1.16,2.93,2.93,0,0,1,.88-1.87c-3.1-.36-6.37-1.56-6.37-6.92a5.4,5.4,0,0,1,1.44-3.76,5,5,0,0,1,.14-3.7s1.17-.38,3.85,1.43a13.3,13.3,0,0,1,7,0c2.67-1.81,3.84-1.43,3.84-1.43a5,5,0,0,1,.14,3.7,5.4,5.4,0,0,1,1.44,3.76c0,5.38-3.27,6.56-6.39,6.91a3.33,3.33,0,0,1,.95,2.59c0,1.87,0,3.38,0,3.84s.25.81,1,.67A14,14,0,0,0,16,2Z"
 								/></a
 							>
@@ -217,7 +240,7 @@
 						<div>
 							{#if !showSettings}
 								<svg
-									class="h-7 w-7 cursor-pointer fill-svgcolor"
+									class="h-7 w-7 cursor-pointer fill-svgcolor dark:fill-darksvgcolor"
 									on:click={toggleSettingsModal}
 									viewBox="0 0 25 24"
 									fill="none"
@@ -233,7 +256,7 @@
 							{:else if showSettings}
 								<!-- Close Icon -->
 								<svg
-									class="relative h-7 w-7 cursor-pointer bg-backgroundcolor fill-svgcolor pr-2"
+									class="relative h-7 w-7 cursor-pointer bg-backgroundcolor fill-svgcolor pr-2 dark:bg-darkbackgroundcolor dark:fill-darksvgcolor"
 									on:click={toggleSettingsModal}
 									viewBox="0 0 25 25"
 									><polygon
@@ -242,7 +265,7 @@
 								>
 							{/if}
 							<div
-								class="absolute right-10 h-2/3 w-1/3 bg-backgroundcolor shadow-xl {showSettings
+								class="absolute right-10 h-2/3 w-1/3 bg-backgroundcolor shadow-xl dark:bg-darkbackgroundcolor {showSettings
 									? 'z-20 block'
 									: 'hidden'}"
 							>
@@ -254,7 +277,7 @@
 							{#if !showAppMenu}
 								<svg
 									on:click={toggleAppMenuModal}
-									class="relative h-7 w-7 cursor-pointer fill-svgcolor"
+									class="relative h-7 w-7 cursor-pointer fill-svgcolor dark:fill-darksvgcolor"
 									viewBox="0 0 25 25"
 									fill="none"
 									xmlns="http://www.w3.org/2000/svg"
@@ -284,7 +307,7 @@
 							{:else if showAppMenu}
 								<!-- Close Icon -->
 								<svg
-									class="relative h-7 w-7 cursor-pointer bg-backgroundcolor fill-svgcolor pr-2"
+									class="relative h-7 w-7 cursor-pointer bg-backgroundcolor fill-svgcolor pr-2 dark:bg-darkbackgroundcolor dark:fill-darksvgcolor"
 									on:click={toggleAppMenuModal}
 									viewBox="0 0 25 25"
 									><polygon
@@ -293,7 +316,7 @@
 								>
 							{/if}
 							<div
-								class="absolute right-10  h-2/3 w-1/3 bg-backgroundcolor shadow-xl {showAppMenu
+								class="absolute right-10  h-2/3 w-1/3 bg-backgroundcolor shadow-xl dark:bg-darkbackgroundcolor {showAppMenu
 									? 'z-20 block'
 									: 'hidden'}"
 							>
