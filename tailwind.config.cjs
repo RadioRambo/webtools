@@ -14,7 +14,7 @@ module.exports = {
 				darksvgcolor: '#FFFFFF',
 				darkprimarycolor: '#323232',
 				darktextcolor: '#EEEEEE',
-				darkbackgroundcolor: '#252525'
+				darkbackgroundcolor: '#202020'
 			},
 			screens: {
 				// Added screen size breakpoints for small mx-auto margins

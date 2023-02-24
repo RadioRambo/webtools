@@ -10,7 +10,7 @@
 	{#each tabNames as tabName, i}
 		<button
 			on:click={() => dispatch('tabChange', i)}
-			class=" bg-gray ml-4 -mr-0.5 px-8 py-3 text-left text-sm font-semibold lg:text-base {i ===
+			class="  bg-gray ml-4 -mr-0.5 px-8 py-3 text-left text-sm font-semibold lg:text-base {i ===
 			activeTab
 				? 'textcolors bgcolors font-extrabold'
 				: ''} {i === activeTab

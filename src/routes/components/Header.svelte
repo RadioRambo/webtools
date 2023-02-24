@@ -171,7 +171,7 @@
 						{:else if showSettings}
 							<!-- Close Icon -->
 							<svg
-								class="outlne-4 relative mt-0.5 h-8 w-6 cursor-pointer  bg-backgroundcolor fill-svgcolor outline outline-backgroundcolor dark:bg-darkbackgroundcolor dark:fill-darksvgcolor"
+								class="outlne-4 relative mt-0.5 h-8 w-6 cursor-pointer  bg-backgroundcolor fill-svgcolor outline outline-backgroundcolor dark:bg-darkbackgroundcolor dark:fill-darksvgcolor dark:outline-darkbackgroundcolor"
 								on:click={toggleSettingsModal}
 								viewBox="6 8 20 20"
 								><polygon
